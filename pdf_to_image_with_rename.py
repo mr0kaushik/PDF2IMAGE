@@ -1,10 +1,14 @@
 import fitz
-doc = fitz.open("E:\\Web\\IPU_Result_Parser\\btech.pdf")
-with open("E:\\Web\\IPU_Result_Parser\\Image_data\\name_data.txt") as f:
+
+pdf_path = "E:\\Web\\IPU_Result_Parser\\btech.pdf"
+name_text_file = "E:\\Web\\IPU_Result_Parser\\Image_data\\name_data.txt"
+
+doc = fitz.open(pdf_path)
+with open(name_text_file) as f:
     content = f.readlines()
 content = [x.strip() for x in content]
-j=0
 
+j=0
 for i in range(len(doc)):
     list = doc.getPageImageList(i)
     list.reverse()
